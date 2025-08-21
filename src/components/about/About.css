@@ -1,0 +1,167 @@
+/* About.css */
+.about-section {
+    padding: 5rem 2rem;
+    background-color: transparent;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.about-container {
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.about-heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.cursor {
+    margin-left: 2px;
+    font-weight: 300;
+}
+
+.about-content {
+    margin-bottom: 3rem;
+    text-align: left;
+    min-height: 250px;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 1.5rem;
+}
+
+.resume-button,
+.hire-button {
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-button {
+    background: transparent;
+    color: white;
+    border: 1px solid #fefcfcca;
+}
+
+.resume-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(204, 206, 207, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.resume-button:hover::before {
+    left: 100%;
+}
+
+.hire-button {
+    background: transparent;
+    color: white;
+    border: 1px solid #c1b7b8;
+    text-decoration: none;
+}
+
+.hire-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(173, 167, 168, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.hire-button:hover::before {
+    left: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 950px) {
+    .about-container {
+        width: 90%;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-heading {
+        font-size: 2.2rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resume-button,
+    .hire-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 3rem 1rem;
+    }
+
+    .about-heading {
+        font-size: 1.8rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,133 @@
+/* Footer.css */
+.footer {
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 170, 255, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer-heading h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #ffffff, #00aaff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.footer-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #00aaff, transparent);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.icon {
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.linkedin:hover {
+    color: #0077b5;
+}
+
+.github:hover {
+    color: #ffffff;
+}
+
+.email:hover {
+    color: #d44638;
+}
+
+.instagram:hover {
+    color: #e1306c;
+}
+
+.facebook:hover {
+    color: #4267B2;
+}
+
+.icon:hover {
+    transform: translateY(-5px) scale(1.2);
+}
+
+.copyright p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 1rem;
+    }
+
+    .footer-heading h2 {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        gap: 1.5rem;
+    }
+
+    .icon {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .social-icons {
+        gap: 1.2rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .copyright p {
+        font-size: 0.9rem;
+    }
+}
