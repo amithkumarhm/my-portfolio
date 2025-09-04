@@ -26,5 +26,6 @@
     .hero-stats {
         justify-content: center;
         text-align: center;
+        margin-right: 25px;
     }
 }

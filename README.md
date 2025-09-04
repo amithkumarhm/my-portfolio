@@ -15,6 +15,58 @@ A modern, responsive portfolio website built with React, Vite, and Framer Motion
 - 🌟 Particle.js background for visual appeal
 - 📊 Animated skill bars and statistics
 
+
+## File Structure
+
+my-portfolio/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── bg.jpg
+│   │   │   └── profileImage1.png
+│   │   └── resume/
+│   │       └── Amith Kumar H M - CV (PDF).pdf
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Header.css
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Footer.css
+│   │   │   ├── Layout.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   ├── LoadingSpinner.css
+│   │   │   ├── ScrollToTop.jsx
+│   │   │   └── ScrollToTop.css
+│   │   ├── Home/
+│   │   │   ├── HeroSection.jsx
+│   │   │   ├── HeroSection.css
+│   │   │   ├── Stats.css
+│   │   │   └── Stats.jsx
+│   │   ├── About/
+│   │   │   ├── About.jsx
+│   │   │   └── About.css
+│   │   ├── Skills/
+│   │   │   ├── Skills.jsx
+│   │   │   └── Skills.css
+│   │   ├── Projects/
+│   │   │   ├── Projects.jsx
+│   │   │   └── Projects.css
+│   ├── pages/
+│   │   └── HomePage.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
+
+
 ## Technologies Used
 
 - **Frontend**: 

@@ -1,5 +1,6 @@
+/* Projects.css */
 .projects-section {
-    padding: 5rem 2rem;
+    padding: 5rem 1rem;
     background-color: transparent;
     color: #fff;
     min-height: 100vh;
@@ -21,11 +22,11 @@
 
 .projects-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .projects-header h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 0.5rem;
     background: linear-gradient(90deg, #ffffff, #ffffff);
@@ -35,28 +36,26 @@
 }
 
 .projects-header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 1rem;
+    padding: 0;
 }
 
 .project-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    margin-top: -50px;
-    padding: 1rem;
+    padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     height: fit-content;
-    /* font-weight: 200; */
 }
 
 .project-card:hover {
@@ -66,14 +65,14 @@
 }
 
 .project-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
     color: #00aaff;
 }
 
 .project-tools {
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -83,13 +82,14 @@
 }
 
 .project-description {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
 }
 
 .project-responsibilities h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.8rem;
     color: #ff4757;
 }
@@ -105,6 +105,7 @@
     padding-left: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.5;
+    font-size: 0.9rem;
 }
 
 .project-responsibilities li::before {
@@ -115,37 +116,42 @@
 }
 
 /* Responsive styles */
-@media (max-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .projects-section {
-        padding: 3rem 1rem;
-    }
-
-    .projects-header h2 {
-        font-size: 2.2rem;
+        padding: 5rem 2rem;
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
     }
 
     .project-card {
-        padding: 1.5rem;
+        padding: 2rem;
+    }
+
+    .project-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
 }
 
 @media (max-width: 480px) {
     .projects-header h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .project-content h3 {
         font-size: 1.3rem;
+    }
+
+    .project-card {
+        padding: 1.2rem;
     }
 }

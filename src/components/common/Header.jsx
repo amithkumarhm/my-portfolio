@@ -24,6 +24,19 @@ const Header = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, [menuOpen]);
 
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [menuOpen]);
+
     return (
         <nav className="navbar navbar-expand-lg fixed-top transparent-navbar">
             <div className="container">
@@ -31,9 +44,10 @@ const Header = () => {
                     Mr. AK
                 </a>
                 <button
-                    className="navbar-toggler custom-toggler"
+                    className={`navbar-toggler custom-toggler ${menuOpen ? 'menu-open' : ''}`}
                     type="button"
                     onClick={toggleMenu}
+                    aria-label="Toggle navigation"
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>

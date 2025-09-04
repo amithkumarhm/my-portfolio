@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './HeroSection.css';
@@ -17,7 +17,8 @@ const HeroSection = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
-    useEffect(() => {
+    // Memoized typing effect to prevent unnecessary re-renders
+    const typeText = useCallback(() => {
         if (!inView) return;
 
         let typingSpeed = isDeleting ? 50 : 100;
@@ -39,6 +40,10 @@ const HeroSection = () => {
         return () => clearTimeout(type);
     }, [typedText, isDeleting, currentRoleIndex, inView]);
 
+    useEffect(() => {
+        typeText();
+    }, [typeText]);
+
     return (
         <section id="home" className="hero-section" ref={ref}>
             <motion.div
@@ -55,6 +60,7 @@ const HeroSection = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.8, type: "spring" }}
+                        loading="eager"
                     />
                 </div>
 
@@ -78,6 +84,7 @@ const HeroSection = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: 0.6, duration: 0.5 }}
+                            style={{ minHeight: '3rem' }}
                         >
                             <span className="typing-text">{typedText}</span>
                         </motion.h2>

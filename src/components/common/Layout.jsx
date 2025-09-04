@@ -1,5 +1,4 @@
-// Layout.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import bgImage from '../../assets/images/bg.jpg';
@@ -10,17 +9,22 @@ import LoadingSpinner from './LoadingSpinner';
 const Layout = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    const particlesInit = async (main) => {
+    const particlesInit = useCallback(async (main) => {
         await loadSlim(main);
-    };
+    }, []);
 
     useEffect(() => {
-        // Total loading time: 4 words * 0.5s each = 2s
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
+        // Preload background image
+        const img = new Image();
+        img.src = bgImage;
+        img.onload = () => {
+            // Total loading time: 4 words * 0.5s each = 2s
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+            }, 2000);
 
-        return () => clearTimeout(timer);
+            return () => clearTimeout(timer);
+        };
     }, []);
 
     if (isLoading) {
@@ -60,7 +64,7 @@ const Layout = ({ children }) => {
                 }}
             />
 
-            {/* 🔹 Particles Layer */}
+            {/* 🔹 Particles Layer - Reduced for mobile performance */}
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -68,31 +72,67 @@ const Layout = ({ children }) => {
                     fullScreen: { enable: true, zIndex: -1 },
                     background: { color: { value: 'transparent' } },
                     particles: {
-                        number: { value: 120, density: { enable: true, area: 800 } },
+                        number: {
+                            value: 80,
+                            density: {
+                                enable: true,
+                                area: 800,
+                                factor: 1000
+                            }
+                        },
                         color: { value: '#ffffff' },
                         links: {
                             enable: true,
                             color: '#ffffff',
                             distance: 120,
-                            opacity: 0.6,
+                            opacity: 0.4,
                             width: 1,
                         },
-                        move: { enable: true, speed: 1.2 },
-                        size: { value: 3 },
-                        opacity: { value: 0.5 },
+                        move: {
+                            enable: true,
+                            speed: 0.8,
+                            outModes: {
+                                default: "out"
+                            }
+                        },
+                        size: { value: 2 },
+                        opacity: { value: 0.3 },
                     },
                     interactivity: {
                         events: {
-                            onHover: { enable: true, mode: 'repulse' },
+                            onHover: {
+                                enable: true,
+                                mode: 'repulse',
+                                parallax: {
+                                    enable: false,
+                                    force: 60,
+                                    smooth: 10
+                                }
+                            },
                             onClick: { enable: true, mode: 'push' },
                             resize: true,
                         },
                         modes: {
-                            repulse: { distance: 100 },
-                            push: { quantity: 4 },
+                            repulse: { distance: 80 },
+                            push: { quantity: 3 },
                         },
                     },
                     detectRetina: true,
+                    responsive: [
+                        {
+                            maxWidth: 768,
+                            options: {
+                                particles: {
+                                    number: {
+                                        value: 40
+                                    },
+                                    links: {
+                                        enable: false
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 }}
             />
 
