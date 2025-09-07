@@ -1,4 +1,3 @@
-/* LoadingSpinner.css */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -11,59 +10,103 @@
     z-index: 9999;
 }
 
+.loading-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -2;
+}
+
+.loading-overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+    z-index: -1;
+}
+
 .loading-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 540px;
     width: 100%;
-    max-width: 500px;
     padding: 20px;
 }
 
-.word-display {
+.words-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 30px;
+    min-height: 120px;
+}
+
+.word-line {
     font-size: 3rem;
     font-weight: 600;
-    color: #00aaff;
-    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(108, 108, 108, 0.684);
     text-align: center;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+    white-space: nowrap;
+    font-style: italic;
+}
+
+.horizontal-loader-container {
+    width: 260px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    overflow: hidden;
     position: relative;
-    z-index: 1;
-    transition: opacity 0.3s ease;
-    animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.horizontal-loader {
+    position: absolute;
+    width: 60px;
+    /* Fixed width for the moving element */
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fafafa, transparent);
+    border-radius: 4px;
+    left: 0;
+    transform: translateX(-50%);
+    /* Center the element on its position */
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
-    .word-display {
-        font-size: 2.5rem;
-        height: 70px;
+    .word-line {
+        font-size: 2.4rem;
+    }
+
+    .horizontal-loader-container {
+        width: 200px;
+    }
+
+    .horizontal-loader {
+        width: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    .word-display {
-        font-size: 2rem;
-        height: 60px;
+    .word-line {
+        font-size: 1.9rem;
     }
 
-    .loading-content {
-        padding: 20px;
+    .horizontal-loader-container {
+        width: 160px;
+    }
+
+    .horizontal-loader {
+        width: 40px;
     }
 }

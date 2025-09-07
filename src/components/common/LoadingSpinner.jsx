@@ -1,75 +1,85 @@
-// LoadingSpinner.jsx
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import './LoadingSpinner.css';
 import bgImage from '../../assets/images/bg.jpg';
 
 const LoadingSpinner = () => {
-    const words = ["Hello!", "Welcome", "to my", "Portfolio"];
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const words = ["Hello", "Welcome", "to my", "Portfolio..."];
+    const [currentWordIndex, setCurrentWordIndex] = useState(-1);
     const [showSpinner, setShowSpinner] = useState(true);
+    const [isComplete, setIsComplete] = useState(false);
 
     useEffect(() => {
-        // Display each word for 0.5 seconds
-        const wordInterval = setInterval(() => {
-            setCurrentWordIndex((prev) => {
-                if (prev >= words.length - 1) {
-                    clearInterval(wordInterval);
-                    setShowSpinner(false);
-                    return prev;
-                }
-                return prev + 1;
-            });
-        }, 500);
+        let idx = -1;
+        const revealNext = () => {
+            idx += 1;
+            setCurrentWordIndex(idx);
+            if (idx >= words.length - 1) {
+                setTimeout(() => {
+                    setIsComplete(true);
+                    setTimeout(() => setShowSpinner(false), 600);
+                }, 900);
+            }
+        };
 
-        return () => clearInterval(wordInterval);
+        const initialTimer = setTimeout(revealNext, 200);
+        const interval = setInterval(() => {
+            if (idx < words.length - 1) revealNext();
+            if (idx >= words.length - 1) clearInterval(interval);
+        }, 900);
+
+        return () => {
+            clearTimeout(initialTimer);
+            clearInterval(interval);
+        };
     }, []);
 
-    if (!showSpinner) {
-        return null;
-    }
+    if (!showSpinner) return null;
 
     return (
-        <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
-            {/* Background Image Layer with Blur */}
-            <div
-                style={{
-                    backgroundImage: `url(${bgImage})`,
-                    backgroundColor: 'black',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    filter: 'blur(10px)',
-                    backgroundSize: 'cover',
-                    position: 'fixed',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%',
-                    zIndex: -1,
-                }}
-            />
+        <motion.div
+            className="loading-overlay"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isComplete ? 0 : 1 }}
+            transition={{ duration: 0.55 }}
+        >
+            <div className="loading-bg" style={{ backgroundImage: `url(${bgImage})` }} />
+            <div className="loading-overlay-dark" />
 
-            {/* Dark Overlay */}
-            <div
-                style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.73)',
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    zIndex: -1,
-                }}
-            />
+            <div className="loading-content">
+                <div className="words-stack">
+                    {words.map((word, index) => {
+                        const visible = index <= currentWordIndex;
+                        return (
+                            <motion.div
+                                key={index}
+                                className="word-line"
+                                initial={{ opacity: 0, x: -120 }}
+                                animate={visible ? { opacity: 1, x: 0 } : {}}
+                                transition={{ duration: 0.5, ease: 'easeOut' }}
+                            >
+                                {word}
+                            </motion.div>
+                        );
+                    })}
+                </div>
 
-            {/* Loading Content */}
-            <div className="loading-overlay">
-                <div className="loading-content">
-                    <div className="word-display">
-                        {words[currentWordIndex]}
-                    </div>
+                <div className="horizontal-loader-container">
+                    <motion.div
+                        className="horizontal-loader"
+                        animate={{
+                            left: ["0%", "100%"] // Move from left to right and back
+                        }}
+                        transition={{
+                            repeat: Infinity, // Infinite loop
+                            duration: 0.8, // Speed of animation
+                            ease: "easeInOut",
+                            times: [0, 0.5, 0] // Time distribution for each keyframe
+                        }}
+                    />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

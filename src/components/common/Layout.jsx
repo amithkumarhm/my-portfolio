@@ -8,24 +8,33 @@ import LoadingSpinner from './LoadingSpinner';
 
 const Layout = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
+    const [isContentLoaded, setIsContentLoaded] = useState(false);
 
     const particlesInit = useCallback(async (main) => {
         await loadSlim(main);
     }, []);
 
     useEffect(() => {
-        // Preload background image
+        // Preload background image and wait for content to load
         const img = new Image();
         img.src = bgImage;
         img.onload = () => {
-            // Total loading time: 4 words * 0.5s each = 2s
-            const timer = setTimeout(() => {
-                setIsLoading(false);
-            }, 2000);
-
-            return () => clearTimeout(timer);
+            // Simulate content loading
+            setTimeout(() => {
+                setIsContentLoaded(true);
+            }, 1000);
         };
     }, []);
+
+    useEffect(() => {
+        if (isContentLoaded) {
+            // Add a small delay for smooth transition
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+            }, 3500);
+            return () => clearTimeout(timer);
+        }
+    }, [isContentLoaded]);
 
     if (isLoading) {
         return <LoadingSpinner />;
@@ -33,14 +42,13 @@ const Layout = ({ children }) => {
 
     return (
         <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
-            {/* 🔹 Background Image Layer */}
+            {/* 🔹 Background Image Layer - Optimized for performance */}
             <div
                 style={{
                     backgroundImage: `url(${bgImage})`,
                     backgroundColor: 'black',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    filter: 'blur(10px)',
                     backgroundSize: 'cover',
                     position: 'fixed',
                     top: '0',
@@ -48,10 +56,13 @@ const Layout = ({ children }) => {
                     width: '100%',
                     height: '100%',
                     zIndex: -3,
+                    filter: "blur(2px)",
+                    transform: 'translateZ(0)',
+                    willChange: 'transform'
                 }}
             />
 
-            {/* 🔹 Optional Dark Overlay for Contrast */}
+            {/* 🔹 Dark Overlay for Contrast */}
             <div
                 style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.73)',
@@ -69,20 +80,19 @@ const Layout = ({ children }) => {
                 id="tsparticles"
                 init={particlesInit}
                 options={{
-                    fullScreen: { enable: true, zIndex: -1 },
+                    fullScreen: { enable: false, zIndex: -1 },
                     background: { color: { value: 'transparent' } },
                     particles: {
                         number: {
-                            value: 80,
+                            value: 75, // Reduced for mobile
                             density: {
                                 enable: true,
-                                area: 800,
-                                factor: 1000
+                                area: 600,
                             }
                         },
                         color: { value: '#ffffff' },
                         links: {
-                            enable: true,
+                            enable: window.innerWidth > 768, // Disable links on mobile
                             color: '#ffffff',
                             distance: 120,
                             opacity: 0.4,
@@ -90,7 +100,7 @@ const Layout = ({ children }) => {
                         },
                         move: {
                             enable: true,
-                            speed: 0.8,
+                            speed: 0.6, // Slower for better performance
                             outModes: {
                                 default: "out"
                             }
@@ -101,20 +111,14 @@ const Layout = ({ children }) => {
                     interactivity: {
                         events: {
                             onHover: {
-                                enable: true,
+                                enable: window.innerWidth > 768, // Disable on mobile
                                 mode: 'repulse',
-                                parallax: {
-                                    enable: false,
-                                    force: 60,
-                                    smooth: 10
-                                }
                             },
-                            onClick: { enable: true, mode: 'push' },
+                            onClick: { enable: false }, // Disable click for performance
                             resize: true,
                         },
                         modes: {
-                            repulse: { distance: 80 },
-                            push: { quantity: 3 },
+                            repulse: { distance: 60 },
                         },
                     },
                     detectRetina: true,
@@ -124,15 +128,23 @@ const Layout = ({ children }) => {
                             options: {
                                 particles: {
                                     number: {
-                                        value: 40
+                                        value: 50 // Very few particles on mobile
                                     },
-                                    links: {
-                                        enable: false
+                                    move: {
+                                        speed: 0.3 // Slower on mobile
                                     }
                                 }
                             }
                         }
                     ]
+                }}
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: -1
                 }}
             />
 

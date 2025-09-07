@@ -1,76 +1,157 @@
-// Skills.jsx
-import React, { useRef, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-    FaReact,
-    FaHtml5,
-    FaCss3Alt,
-    FaJs,
-    FaJava,
-    FaDocker,
-    FaGitAlt,
-    FaDatabase
-} from 'react-icons/fa';
-import {
-    SiSpringboot,
-    SiJenkins,
-    SiApachecassandra,
-    SiApachekafka,
-    SiBootstrap,
-    SiMysql
-} from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {
-    const controls = useAnimation();
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
     const skills = [
-        { name: "ReactJS", category: "Frontend", icon: <FaReact className="skill-icon" /> },
         {
-            name: "HTML/CSS",
-            category: "Frontend",
-            icon: (
-                <div className="combined-icons">
-                    <FaHtml5 className="skill-icon" />
-                    <FaCss3Alt className="skill-icon" />
-                </div>
-            )
+            name: "HTML",
+            icon: "/src/assets/logos/html.png",
+            url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+            color: "#E34F26"
         },
-        { name: "JavaScript", category: "Frontend", icon: <FaJs className="skill-icon" /> },
-        { name: "Java", category: "Backend", icon: <FaJava className="skill-icon" /> },
-        { name: "Spring Boot", category: "Backend", icon: <SiSpringboot className="skill-icon" /> },
-        { name: "Jenkins", category: "DevOps", icon: <SiJenkins className="skill-icon" /> },
-        { name: "Docker", category: "DevOps", icon: <FaDocker className="skill-icon" /> },
-        { name: "MySQL", category: "Database", icon: <SiMysql className="skill-icon" /> },
-        { name: "Cassandra", category: "Database", icon: <SiApachecassandra className="skill-icon" /> },
-        { name: "Microservices", category: "Architecture", icon: <FaDatabase className="skill-icon" /> },
-        { name: "Monolithic", category: "Architecture", icon: <FaDatabase className="skill-icon" /> },
-        { name: "Apache Kafka", category: "Messaging", icon: <SiApachekafka className="skill-icon" /> },
-        { name: "REST APIs", category: "Backend", icon: <FaDatabase className="skill-icon" /> },
-        { name: "Spring Security", category: "Security", icon: <SiSpringboot className="skill-icon" /> },
-        { name: "Bootstrap", category: "Frontend", icon: <SiBootstrap className="skill-icon" /> },
-        { name: "Git & Github", category: "Version Control", icon: <FaGitAlt className="skill-icon" /> },
-        { name: "CI/CD", category: "DevOps", icon: <SiJenkins className="skill-icon" /> }
+        {
+            name: "CSS",
+            icon: "/src/assets/logos/css.png",
+            url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+            color: "#1572B6"
+        },
+        {
+            name: "Bootstrap CSS",
+            icon: "/src/assets/logos/bootstrap_css.png",
+            url: "https://getbootstrap.com/",
+            color: "#7952B3"
+        },
+        {
+            name: "JavaScript",
+            icon: "/src/assets/logos/javascript.png",
+            url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            color: "#F7DF1E"
+        },
+        {
+            name: "ReactJS",
+            icon: "/src/assets/logos/reactjs.png",
+            url: "https://reactjs.org/",
+            color: "#61DAFB"
+        },
+        {
+            name: "Python",
+            icon: "/src/assets/logos/python.png",
+            url: "https://www.python.org/",
+            color: "#3776AB"
+        },
+        {
+            name: "Java",
+            icon: "/src/assets/logos/java.png",
+            url: "https://www.java.com/",
+            color: "#007396"
+        },
+        {
+            name: "Spring Framework",
+            icon: "/src/assets/logos/spring_framework.png",
+            url: "https://spring.io/",
+            color: "#6DB33F"
+        },
+        {
+            name: "REST APIs",
+            icon: "/src/assets/logos/restapi.png",
+            url: "https://restfulapi.net/",
+            color: "#FF6B6B"
+        },
+        {
+            name: "Jenkins",
+            icon: "/src/assets/logos/jenkins.png",
+            url: "https://www.jenkins.io/",
+            color: "#D24939"
+        },
+        {
+            name: "Docker",
+            icon: "/src/assets/logos/docker.png",
+            url: "https://www.docker.com/",
+            color: "#2496ED"
+        },
+        {
+            name: "DevOps",
+            icon: "/src/assets/logos/devops.png",
+            url: "https://aws.amazon.com/devops/what-is-devops/",
+            color: "#FF6B6B"
+        },
+        {
+            name: "MySQL",
+            icon: "/src/assets/logos/mysql.png",
+            url: "https://www.mysql.com/",
+            color: "#4479A1"
+        },
+        {
+            name: "Cassandra",
+            icon: "/src/assets/logos/cassandra.png",
+            url: "https://cassandra.apache.org/",
+            color: "#1287B1"
+        },
+        {
+            name: "Microservices",
+            icon: "/src/assets/logos/microservices.png",
+            url: "https://microservices.io/",
+            color: "#FF9E0F"
+        },
+        {
+            name: "Apache Kafka",
+            icon: "/src/assets/logos/apache_kafka.png",
+            url: "https://kafka.apache.org/",
+            color: "#231F20"
+        },
+        {
+            name: "GitHub",
+            icon: "/src/assets/logos/github.png",
+            url: "https://github.com/",
+            color: "#181717"
+        },
+        {
+            name: "Git",
+            icon: "/src/assets/logos/git.png",
+            url: "https://git-scm.com/",
+            color: "#F05032"
+        },
+        {
+            name: "Maven",
+            icon: "/src/assets/logos/maven.png",
+            url: "https://maven.apache.org/",
+            color: "#C71A36"
+        },
+        {
+            name: "Kubernetes",
+            icon: "/src/assets/logos/kubernetes.png",
+            url: "https://kubernetes.io/",
+            color: "#326CE5"
+        },
+        {
+            name: "AWS",
+            icon: "/src/assets/logos/aws.png",
+            url: "https://aws.amazon.com/",
+            color: "#FF9900"
+        }
     ];
 
-    // Group skills by category
-    const skillsByCategory = skills.reduce((acc, skill) => {
-        if (!acc[skill.category]) {
-            acc[skill.category] = [];
-        }
-        acc[skill.category].push(skill);
-        return acc;
-    }, {});
+    // Arrange skills in inverted triangle pattern (4 rows)
+    const rowCounts = [6, 6, 5, 5]; // Number of icons in each row
+    const skillRows = [];
 
-    useEffect(() => {
-        if (inView) {
-            controls.start("visible");
-        } else {
-            controls.start("hidden");
+    let skillIndex = 0;
+    for (let i = 0; i < rowCounts.length; i++) {
+        const rowSkills = [];
+        for (let j = 0; j < rowCounts[i] && skillIndex < skills.length; j++) {
+            rowSkills.push(skills[skillIndex]);
+            skillIndex++;
         }
-    }, [controls, inView]);
+        skillRows.push(rowSkills);
+    }
+
+    const handleSkillClick = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
 
     return (
         <section id="skills" className="skills-section" ref={ref}>
@@ -78,60 +159,52 @@ const Skills = () => {
                 <motion.div
                     className="skills-header"
                     initial={{ opacity: 0, y: -20 }}
-                    animate={controls}
-                    variants={{
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                        hidden: { opacity: 0, y: -20 }
-                    }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5 }}
                 >
                     <h2>My Skills</h2>
                     <p>Technologies I work with</p>
                 </motion.div>
 
-                <div className="skills-grid">
-                    {Object.entries(skillsByCategory).map(([category, skills], index) => (
+                <div className="skills-pyramid">
+                    {skillRows.map((row, rowIndex) => (
                         <motion.div
-                            key={category}
-                            className="skill-category"
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, y: 50 }}
-                            animate={inView ? {
-                                opacity: 1,
-                                x: 0,
-                                y: 0,
-                                transition: {
-                                    delay: index * 0.2,
-                                    duration: 0.8,
-                                    type: "spring",
-                                    damping: 10,
-                                    stiffness: 100
-                                }
-                            } : { opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                            whileHover={{
-                                y: -10,
-                                boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)",
-                                borderColor: "rgba(0, 170, 255, 0.3)"
-                            }}
+                            key={rowIndex}
+                            className="skill-row"
+                            initial={{ opacity: 0, y: -50 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ delay: rowIndex * 0.1, duration: 0.5 }}
                         >
-                            <h3>{category}</h3>
-                            <div className="skills-list">
-                                {skills.map((skill, skillIndex) => (
+                            {row.map((skill, skillIndex) => (
+                                <motion.div
+                                    key={skillIndex}
+                                    className="skill-item-container"
+                                    whileHover={{ scale: 1.2, y: -5 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                >
+                                    <div className="skill-tooltip">{skill.name}</div>
                                     <motion.div
-                                        key={skillIndex}
-                                        className="skill-item"
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={inView ? { opacity: 1, x: 0 } : {}}
+                                        className="skill-icon-wrapper"
+                                        onClick={() => handleSkillClick(skill.url)}
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        animate={inView ? { opacity: 1, scale: 1 } : {}}
                                         transition={{
-                                            duration: 0.3,
-                                            delay: index * 0.2 + skillIndex * 0.05
+                                            delay: rowIndex * 0.1 + skillIndex * 0.05,
+                                            duration: 0.5
+                                        }}
+                                        whileHover={{
+                                            scale: 1.2,
+                                            boxShadow: `0 0 15px ${skill.color}`
                                         }}
                                     >
-                                        <div className="skill-content">
-                                            {skill.icon}
-                                            <span className="skill-name">{skill.name}</span>
-                                        </div>
+                                        <img
+                                            src={skill.icon}
+                                            alt={skill.name}
+                                            className="skill-icon-img"
+                                        />
                                     </motion.div>
-                                ))}
-                            </div>
+                                </motion.div>
+                            ))}
                         </motion.div>
                     ))}
                 </div>
