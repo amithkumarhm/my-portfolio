@@ -3,140 +3,58 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Skills.css';
 
+// Importing images properly so they work after hosting
+import htmlLogo from '/src/assets/logos/html.png';
+import cssLogo from '/src/assets/logos/css.png';
+import bootstrapLogo from '/src/assets/logos/bootstrap_css.png';
+import jsLogo from '/src/assets/logos/javascript.png';
+import reactLogo from '/src/assets/logos/reactjs.png';
+import pythonLogo from '/src/assets/logos/python.png';
+import javaLogo from '/src/assets/logos/java.png';
+import springLogo from '/src/assets/logos/spring_framework.png';
+import restLogo from '/src/assets/logos/restapi.png';
+import jenkinsLogo from '/src/assets/logos/jenkins.png';
+import dockerLogo from '/src/assets/logos/docker.png';
+import devopsLogo from '/src/assets/logos/devops.png';
+import mysqlLogo from '/src/assets/logos/mysql.png';
+import cassandraLogo from '/src/assets/logos/cassandra.png';
+import microservicesLogo from '/src/assets/logos/microservices.png';
+import kafkaLogo from '/src/assets/logos/apache_kafka.png';
+import githubLogo from '/src/assets/logos/github.png';
+import gitLogo from '/src/assets/logos/git.png';
+import mavenLogo from '/src/assets/logos/maven.png';
+import kubernetesLogo from '/src/assets/logos/kubernetes.png';
+import awsLogo from '/src/assets/logos/aws.png';
+
 const Skills = () => {
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
     const skills = [
-        {
-            name: "HTML",
-            icon: "/src/assets/logos/html.png",
-            url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-            color: "#E34F26"
-        },
-        {
-            name: "CSS",
-            icon: "/src/assets/logos/css.png",
-            url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-            color: "#1572B6"
-        },
-        {
-            name: "Bootstrap CSS",
-            icon: "/src/assets/logos/bootstrap_css.png",
-            url: "https://getbootstrap.com/",
-            color: "#7952B3"
-        },
-        {
-            name: "JavaScript",
-            icon: "/src/assets/logos/javascript.png",
-            url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-            color: "#F7DF1E"
-        },
-        {
-            name: "ReactJS",
-            icon: "/src/assets/logos/reactjs.png",
-            url: "https://reactjs.org/",
-            color: "#61DAFB"
-        },
-        {
-            name: "Python",
-            icon: "/src/assets/logos/python.png",
-            url: "https://www.python.org/",
-            color: "#3776AB"
-        },
-        {
-            name: "Java",
-            icon: "/src/assets/logos/java.png",
-            url: "https://www.java.com/",
-            color: "#007396"
-        },
-        {
-            name: "Spring Framework",
-            icon: "/src/assets/logos/spring_framework.png",
-            url: "https://spring.io/",
-            color: "#6DB33F"
-        },
-        {
-            name: "REST APIs",
-            icon: "/src/assets/logos/restapi.png",
-            url: "https://restfulapi.net/",
-            color: "#FF6B6B"
-        },
-        {
-            name: "Jenkins",
-            icon: "/src/assets/logos/jenkins.png",
-            url: "https://www.jenkins.io/",
-            color: "#D24939"
-        },
-        {
-            name: "Docker",
-            icon: "/src/assets/logos/docker.png",
-            url: "https://www.docker.com/",
-            color: "#2496ED"
-        },
-        {
-            name: "DevOps",
-            icon: "/src/assets/logos/devops.png",
-            url: "https://aws.amazon.com/devops/what-is-devops/",
-            color: "#FF6B6B"
-        },
-        {
-            name: "MySQL",
-            icon: "/src/assets/logos/mysql.png",
-            url: "https://www.mysql.com/",
-            color: "#4479A1"
-        },
-        {
-            name: "Cassandra",
-            icon: "/src/assets/logos/cassandra.png",
-            url: "https://cassandra.apache.org/",
-            color: "#1287B1"
-        },
-        {
-            name: "Microservices",
-            icon: "/src/assets/logos/microservices.png",
-            url: "https://microservices.io/",
-            color: "#FF9E0F"
-        },
-        {
-            name: "Apache Kafka",
-            icon: "/src/assets/logos/apache_kafka.png",
-            url: "https://kafka.apache.org/",
-            color: "#231F20"
-        },
-        {
-            name: "GitHub",
-            icon: "/src/assets/logos/github.png",
-            url: "https://github.com/",
-            color: "#181717"
-        },
-        {
-            name: "Git",
-            icon: "/src/assets/logos/git.png",
-            url: "https://git-scm.com/",
-            color: "#F05032"
-        },
-        {
-            name: "Maven",
-            icon: "/src/assets/logos/maven.png",
-            url: "https://maven.apache.org/",
-            color: "#C71A36"
-        },
-        {
-            name: "Kubernetes",
-            icon: "/src/assets/logos/kubernetes.png",
-            url: "https://kubernetes.io/",
-            color: "#326CE5"
-        },
-        {
-            name: "AWS",
-            icon: "/src/assets/logos/aws.png",
-            url: "https://aws.amazon.com/",
-            color: "#FF9900"
-        }
+        { name: "HTML", icon: htmlLogo, url: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
+        { name: "CSS", icon: cssLogo, url: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
+        { name: "Bootstrap CSS", icon: bootstrapLogo, url: "https://getbootstrap.com/", color: "#7952B3" },
+        { name: "JavaScript", icon: jsLogo, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
+        { name: "ReactJS", icon: reactLogo, url: "https://reactjs.org/", color: "#61DAFB" },
+        { name: "Python", icon: pythonLogo, url: "https://www.python.org/", color: "#3776AB" },
+        { name: "Java", icon: javaLogo, url: "https://www.java.com/", color: "#007396" },
+        { name: "Spring Framework", icon: springLogo, url: "https://spring.io/", color: "#6DB33F" },
+        { name: "REST APIs", icon: restLogo, url: "https://restfulapi.net/", color: "#FF6B6B" },
+        { name: "Jenkins", icon: jenkinsLogo, url: "https://www.jenkins.io/", color: "#D24939" },
+        { name: "Docker", icon: dockerLogo, url: "https://www.docker.com/", color: "#2496ED" },
+        { name: "DevOps", icon: devopsLogo, url: "https://aws.amazon.com/devops/what-is-devops/", color: "#FF6B6B" },
+        { name: "MySQL", icon: mysqlLogo, url: "https://www.mysql.com/", color: "#4479A1" },
+        { name: "Cassandra", icon: cassandraLogo, url: "https://cassandra.apache.org/", color: "#1287B1" },
+        { name: "Microservices", icon: microservicesLogo, url: "https://microservices.io/", color: "#FF9E0F" },
+        { name: "Apache Kafka", icon: kafkaLogo, url: "https://kafka.apache.org/", color: "#231F20" },
+        { name: "GitHub", icon: githubLogo, url: "https://github.com/", color: "#181717" },
+        { name: "Git", icon: gitLogo, url: "https://git-scm.com/", color: "#F05032" },
+        { name: "Maven", icon: mavenLogo, url: "https://maven.apache.org/", color: "#C71A36" },
+        { name: "Kubernetes", icon: kubernetesLogo, url: "https://kubernetes.io/", color: "#326CE5" },
+        { name: "AWS", icon: awsLogo, url: "https://aws.amazon.com/", color: "#FF9900" }
     ];
 
-    // Arrange skills in inverted triangle pattern (4 rows)
-    const rowCounts = [6, 6, 5, 5]; // Number of icons in each row
+    // Arrange skills in inverted triangle pattern (3 rows)
+    const rowCounts = [8, 7, 6, 5];
     const skillRows = [];
 
     let skillIndex = 0;
