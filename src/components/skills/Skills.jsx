@@ -3,58 +3,36 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Skills.css';
 
-// Importing images properly so they work after hosting
-import htmlLogo from '/src/assets/logos/html.png';
-import cssLogo from '/src/assets/logos/css.png';
-import bootstrapLogo from '/src/assets/logos/bootstrap_css.png';
-import jsLogo from '/src/assets/logos/javascript.png';
-import reactLogo from '/src/assets/logos/reactjs.png';
-import pythonLogo from '/src/assets/logos/python.png';
-import javaLogo from '/src/assets/logos/java.png';
-import springLogo from '/src/assets/logos/spring_framework.png';
-import restLogo from '/src/assets/logos/restapi.png';
-import jenkinsLogo from '/src/assets/logos/jenkins.png';
-import dockerLogo from '/src/assets/logos/docker.png';
-import devopsLogo from '/src/assets/logos/devops.png';
-import mysqlLogo from '/src/assets/logos/mysql.png';
-import cassandraLogo from '/src/assets/logos/cassandra.png';
-import microservicesLogo from '/src/assets/logos/microservices.png';
-import kafkaLogo from '/src/assets/logos/apache_kafka.png';
-import githubLogo from '/src/assets/logos/github.png';
-import gitLogo from '/src/assets/logos/git.png';
-import mavenLogo from '/src/assets/logos/maven.png';
-import kubernetesLogo from '/src/assets/logos/kubernetes.png';
-import awsLogo from '/src/assets/logos/aws.png';
-
+// Import logos from public folder for better compatibility
 const Skills = () => {
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
     const skills = [
-        { name: "HTML", icon: htmlLogo, url: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
-        { name: "CSS", icon: cssLogo, url: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
-        { name: "Bootstrap CSS", icon: bootstrapLogo, url: "https://getbootstrap.com/", color: "#7952B3" },
-        { name: "JavaScript", icon: jsLogo, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
-        { name: "ReactJS", icon: reactLogo, url: "https://reactjs.org/", color: "#61DAFB" },
-        { name: "Python", icon: pythonLogo, url: "https://www.python.org/", color: "#3776AB" },
-        { name: "Java", icon: javaLogo, url: "https://www.java.com/", color: "#007396" },
-        { name: "Spring Framework", icon: springLogo, url: "https://spring.io/", color: "#6DB33F" },
-        { name: "REST APIs", icon: restLogo, url: "https://restfulapi.net/", color: "#FF6B6B" },
-        { name: "Jenkins", icon: jenkinsLogo, url: "https://www.jenkins.io/", color: "#D24939" },
-        { name: "Docker", icon: dockerLogo, url: "https://www.docker.com/", color: "#2496ED" },
-        { name: "DevOps", icon: devopsLogo, url: "https://aws.amazon.com/devops/what-is-devops/", color: "#FF6B6B" },
-        { name: "MySQL", icon: mysqlLogo, url: "https://www.mysql.com/", color: "#4479A1" },
-        { name: "Cassandra", icon: cassandraLogo, url: "https://cassandra.apache.org/", color: "#1287B1" },
-        { name: "Microservices", icon: microservicesLogo, url: "https://microservices.io/", color: "#FF9E0F" },
-        { name: "Apache Kafka", icon: kafkaLogo, url: "https://kafka.apache.org/", color: "#231F20" },
-        { name: "GitHub", icon: githubLogo, url: "https://github.com/", color: "#181717" },
-        { name: "Git", icon: gitLogo, url: "https://git-scm.com/", color: "#F05032" },
-        { name: "Maven", icon: mavenLogo, url: "https://maven.apache.org/", color: "#C71A36" },
-        { name: "Kubernetes", icon: kubernetesLogo, url: "https://kubernetes.io/", color: "#326CE5" },
-        { name: "AWS", icon: awsLogo, url: "https://aws.amazon.com/", color: "#FF9900" }
+        { name: "HTML", icon: "/logos/html.png", url: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#E34F26" },
+        { name: "CSS", icon: "/logos/css.png", url: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572B6" },
+        { name: "Bootstrap CSS", icon: "/logos/bootstrap_css.png", url: "https://getbootstrap.com/", color: "#7952B3" },
+        { name: "JavaScript", icon: "/logos/javascript.png", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#F7DF1E" },
+        { name: "ReactJS", icon: "/logos/reactjs.png", url: "https://reactjs.org/", color: "#61DAFB" },
+        { name: "Python", icon: "/logos/python.png", url: "https://www.python.org/", color: "#3776AB" },
+        { name: "Java", icon: "/logos/java.png", url: "https://www.java.com/", color: "#007396" },
+        { name: "Spring Framework", icon: "/logos/spring_framework.png", url: "https://spring.io/", color: "#6DB33F" },
+        { name: "REST APIs", icon: "/logos/restapi.png", url: "https://restfulapi.net/", color: "#FF6B6B" },
+        { name: "Jenkins", icon: "/logos/jenkins.png", url: "https://www.jenkins.io/", color: "#D24939" },
+        { name: "Docker", icon: "/logos/docker.png", url: "https://www.docker.com/", color: "#2496ED" },
+        { name: "DevOps", icon: "/logos/devops.png", url: "https://aws.amazon.com/devops/what-is-devops/", color: "#FF6B6B" },
+        { name: "MySQL", icon: "/logos/mysql.png", url: "https://www.mysql.com/", color: "#4479A1" },
+        { name: "Cassandra", icon: "/logos/cassandra.png", url: "https://cassandra.apache.org/", color: "#1287B1" },
+        { name: "Microservices", icon: "/logos/microservices.png", url: "https://microservices.io/", color: "#FF9E0F" },
+        { name: "Apache Kafka", icon: "/logos/apache_kafka.png", url: "https://kafka.apache.org/", color: "#231F20" },
+        { name: "GitHub", icon: "/logos/github.png", url: "https://github.com/", color: "#181717" },
+        { name: "Git", icon: "/logos/git.png", url: "https://git-scm.com/", color: "#F05032" },
+        { name: "Maven", icon: "/logos/maven.png", url: "https://maven.apache.org/", color: "#C71A36" },
+        { name: "Kubernetes", icon: "/logos/kubernetes.png", url: "https://kubernetes.io/", color: "#326CE5" },
+        { name: "AWS", icon: "/logos/aws.png", url: "https://aws.amazon.com/", color: "#FF9900" }
     ];
 
-    // Arrange skills in inverted triangle pattern (3 rows)
-    const rowCounts = [8, 7, 6, 5];
+    // Arrange skills in rows
+    const rowCounts = [7, 7, 7];
     const skillRows = [];
 
     let skillIndex = 0;
@@ -76,9 +54,9 @@ const Skills = () => {
             <div className="skills-container">
                 <motion.div
                     className="skills-header"
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={{ opacity: 0, y: -10 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <h2>My Skills</h2>
                     <p>Technologies I work with</p>
@@ -89,36 +67,37 @@ const Skills = () => {
                         <motion.div
                             key={rowIndex}
                             className="skill-row"
-                            initial={{ opacity: 0, y: -50 }}
+                            initial={{ opacity: 0, y: -20 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: rowIndex * 0.1, duration: 0.5 }}
+                            transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
                         >
                             {row.map((skill, skillIndex) => (
                                 <motion.div
                                     key={skillIndex}
                                     className="skill-item-container"
-                                    whileHover={{ scale: 1.2, y: -5 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
+                                    whileHover={{ scale: 1.1, y: -3 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 >
                                     <div className="skill-tooltip">{skill.name}</div>
                                     <motion.div
                                         className="skill-icon-wrapper"
                                         onClick={() => handleSkillClick(skill.url)}
-                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        initial={{ opacity: 0, scale: 0.8 }}
                                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                                         transition={{
                                             delay: rowIndex * 0.1 + skillIndex * 0.05,
-                                            duration: 0.5
+                                            duration: 0.4
                                         }}
                                         whileHover={{
-                                            scale: 1.2,
-                                            boxShadow: `0 0 15px ${skill.color}`
+                                            scale: 1.1,
+                                            boxShadow: `0 0 10px ${skill.color}`
                                         }}
                                     >
                                         <img
                                             src={skill.icon}
                                             alt={skill.name}
                                             className="skill-icon-img"
+                                            loading="lazy"
                                         />
                                     </motion.div>
                                 </motion.div>

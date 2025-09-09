@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './LoadingSpinner.css';
-import bgImage from '../../assets/images/bg.jpg';
+// import bgImage from '../../assets/images/bg.jpg';
 
 const LoadingSpinner = () => {
     const words = ["Hello", "Welcome", "to my", "Portfolio..."];
@@ -43,7 +43,7 @@ const LoadingSpinner = () => {
             animate={{ opacity: isComplete ? 0 : 1 }}
             transition={{ duration: 0.55 }}
         >
-            <div className="loading-bg" style={{ backgroundImage: `url(${bgImage})` }} />
+            {/* <div className="loading-bg" style={{ backgroundImage: `url(${bgImage})` }} /> */}
             <div className="loading-overlay-dark" />
 
             <div className="loading-content">

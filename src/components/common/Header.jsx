@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import './Header.css';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { isDarkMode, toggleTheme } = useTheme();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -43,14 +47,38 @@ const Header = () => {
                 <a className="navbar-brand text-white fw-bold fs-3" href="#">
                     Mr. AK
                 </a>
-                <button
-                    className={`navbar-toggler custom-toggler ${menuOpen ? 'menu-open' : ''}`}
-                    type="button"
-                    onClick={toggleMenu}
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+
+                <div className="d-flex align-items-center">
+                    {/* Theme Toggle Button */}
+                    <motion.button
+                        className="theme-toggle-btn"
+                        onClick={toggleTheme}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label="Toggle dark mode"
+                    >
+                        <motion.div
+                            initial={false}
+                            animate={{ rotate: isDarkMode ? 180 : 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            {isDarkMode ? (
+                                <FaSun className="theme-icon" />
+                            ) : (
+                                <FaMoon className="theme-icon" />
+                            )}
+                        </motion.div>
+                    </motion.button>
+
+                    <button
+                        className={`navbar-toggler custom-toggler ${menuOpen ? 'menu-open' : ''}`}
+                        type="button"
+                        onClick={toggleMenu}
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
                 {/* Desktop Menu */}
                 <div className="collapse navbar-collapse d-none d-lg-flex justify-content-end">

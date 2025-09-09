@@ -31,7 +31,7 @@ const About = () => {
                         });
                     });
                 }
-            }, 50);
+            }, 60);
         }
     }, [inView]);
 
@@ -44,12 +44,12 @@ const About = () => {
                 clearInterval(interval);
                 if (callback) callback();
             }
-        }, 10);
+        }, 15);
     };
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = './src/assets/resume/Amith Kumar H M - CV (PDF).pdf';
+        link.href = '/resume/Amith Kumar H M - CV (PDF).pdf';
         link.download = 'Amith Kumar H M - CV (PDF).pdf';
         document.body.appendChild(link);
         link.click();
@@ -60,15 +60,15 @@ const About = () => {
         <section id="about" className="about-section" ref={ref}>
             <motion.div
                 className="about-container"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }}
             >
                 <motion.h2
                     className="about-heading"
-                    initial={{ opacity: 0, x: -100 }}
+                    initial={{ opacity: 0, x: -50 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.2, duration: 0.8, type: "spring" }}
+                    transition={{ delay: 0.1, duration: 0.6 }}
                 >
                     {titleText}
                     {titleText.length < fullTitle.length && (
@@ -85,9 +85,9 @@ const About = () => {
                 <div className="about-content">
                     <motion.p
                         className="about-text"
-                        initial={{ opacity: 0, x: 100 }}
+                        initial={{ opacity: 0, x: 50 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
                     >
                         {aboutText1}
                         {aboutText1.length < fullText1.length && (
@@ -103,9 +103,9 @@ const About = () => {
 
                     <motion.p
                         className="about-text"
-                        initial={{ opacity: 0, x: -100 }}
+                        initial={{ opacity: 0, x: -50 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
                     >
                         {aboutText2}
                         {aboutText2.length < fullText2.length && (
@@ -123,16 +123,16 @@ const About = () => {
                 {showButtons && (
                     <motion.div
                         className="action-buttons"
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
                     >
                         <motion.button
                             onClick={handleDownload}
                             className="resume-button"
                             whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0 5px 15px rgba(0, 170, 255, 0.4)",
+                                scale: 1.03,
+                                boxShadow: "0 5px 15px rgba(0, 170, 255, 0.3)",
                             }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -144,8 +144,8 @@ const About = () => {
                             rel="noopener"
                             className="hire-button"
                             whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0 5px 15px rgba(255, 71, 87, 0.4)",
+                                scale: 1.03,
+                                boxShadow: "0 5px 15px rgba(255, 71, 87, 0.3)",
                             }}
                             whileTap={{ scale: 0.98 }}
                         >

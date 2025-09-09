@@ -6,7 +6,7 @@
     justify-content: center;
     min-height: 100vh;
     padding: 2rem 1rem;
-    color: #fff;
+    color: var(--text-primary);
     background: transparent;
     text-align: center;
     position: relative;
@@ -34,8 +34,8 @@
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #00aaff;
-    box-shadow: 0 0 50px rgba(0, 170, 255, 0.5);
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 50px color-mix(in srgb, var(--accent-color) 50%, transparent);
     transition: transform 0.3s ease;
 }
 
@@ -65,14 +65,15 @@
 }
 
 .typing-text {
-    color: #00aaff;
+    color: var(--accent-color);
     font-weight: 600;
-    border-right: 2px solid #00aaff;
+    border-right: 2px solid var(--accent-color);
     padding-right: 5px;
     animation: blink 0.7s step-end infinite;
     min-height: 2.5rem;
     display: inline-block;
 }
+
 
 @keyframes blink {
     50% {

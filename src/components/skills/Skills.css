@@ -1,7 +1,7 @@
 .skills-section {
     padding: 2rem 1rem;
     background-color: transparent;
-    color: #fff;
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -29,9 +29,9 @@
 
 .skills-header h2 {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #ffffff, #ffffff);
+    background: linear-gradient(90deg, var(--text-primary), var(--text-primary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -39,7 +39,7 @@
 
 .skills-header p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
 }
 
 .skills-pyramid {
@@ -69,8 +69,8 @@
 .skill-tooltip {
     position: absolute;
     top: -40px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    background: var(--card-bg);
+    color: var(--text-primary);
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -81,6 +81,8 @@
     z-index: 10;
     text-align: center;
     min-width: max-content;
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
 }
 
 .skill-item-container:hover .skill-tooltip {
@@ -96,13 +98,13 @@
     justify-content: center;
     padding: 0.5rem;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
 }
 
 .skill-icon-wrapper:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: color-mix(in srgb, var(--card-bg) 90%, var(--text-primary));
 }
 
 .skill-icon-img {
@@ -110,6 +112,7 @@
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
+    filter: var(--icon-filter, none);
 }
 
 .skill-icon-wrapper:hover .skill-icon-img {
@@ -125,24 +128,20 @@
 
     .skill-row {
         gap: 1.8rem;
-        /* Slightly reduced gap for tablet */
     }
 
     .skills-pyramid {
         gap: 2.5rem;
-        /* Slightly reduced gap for tablet */
     }
 }
 
 @media (max-width: 768px) {
     .skills-pyramid {
         gap: 2rem;
-        /* Good gap for mobile rows */
     }
 
     .skill-row {
         gap: 1.5rem;
-        /* Good gap for mobile icons */
         justify-content: center;
     }
 
@@ -164,12 +163,10 @@
 
     .skills-pyramid {
         gap: 2.8rem;
-        /* Maintain good row spacing */
     }
 
     .skill-row {
         gap: 1.4rem;
-        /* Maintain good icon spacing */
         justify-content: center;
     }
 
@@ -195,22 +192,18 @@
 
 /* Specific row adjustments for inverted triangle layout */
 .skill-row:nth-child(1) {
-    /* First row */
     margin: 0;
 }
 
 .skill-row:nth-child(2) {
-    /* Second row */
     margin: 0 1rem;
 }
 
 .skill-row:nth-child(3) {
-    /* Third row */
     margin: 0 2rem;
 }
 
 .skill-row:nth-child(4) {
-    /* Bottom row - fewest items */
     margin: 0 3rem;
 }
 
@@ -232,7 +225,6 @@
 @media (max-width: 360px) {
     .skill-row {
         gap: 1rem;
-        /* Slightly smaller gap for very small screens */
     }
 
     .skill-icon-wrapper {

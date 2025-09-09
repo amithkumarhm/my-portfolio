@@ -9,17 +9,17 @@
 }
 
 .hero-stats div {
-    min-width: 140px;
+    min-width: 180px;
 }
 
 .hero-stats h3 {
     font-size: 2rem;
-    color: #00aaff;
+    color: var(--accent-color);
 }
 
 .hero-stats p {
     font-size: 1rem;
-    color: #ccc;
+    color: var(--text-secondary);
 }
 
 @media (max-width: 991.98px) {

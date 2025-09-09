@@ -85,6 +85,62 @@
     top: 0;
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Update navbar brand color for light mode */
+[data-theme="light"] .navbar-brand {
+    color: #000 !important;
+}
+
+[data-theme="light"] .nav-link {
+    color: #000 !important;
+}
+
+[data-theme="light"] .nav-animate::after {
+    background-color: #000;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .theme-icon {
+    color: #000;
+}
+
+/* Custom toggler for light mode */
+[data-theme="light"] .custom-toggler .navbar-toggler-icon,
+[data-theme="light"] .custom-toggler .navbar-toggler-icon::before,
+[data-theme="light"] .custom-toggler .navbar-toggler-icon::after {
+    background-color: #000;
+}
+
 /* Mobile nav menu with full-screen blur and centered links */
 @media (max-width: 991.98px) {
     .mobile-center-menu {
@@ -123,6 +179,15 @@
         padding: 0.75rem 2rem;
         width: 100%;
         display: block;
+    }
+
+    /* Mobile menu styles for light mode */
+    [data-theme="light"] .mobile-center-menu {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="light"] .mobile-center-menu .nav-link {
+        color: #000 !important;
     }
 
     @keyframes fadeInMenu {
